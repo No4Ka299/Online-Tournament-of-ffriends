@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTF - Season 1 Statistics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Скопируйте все стили из <style> в index.html, но добавьте/измените следующие стили: */
+        :root {
+            --primary-color: #FF9800;
+            --secondary-color: #212121;
+            --text-color: #FFFFFF;
+            --background-color: #000000;
+            --accent-color: #FFC107;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            --border-radius: 4px;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* Общие стили секции */
+        section {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        /* Стили для таблиц */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        th, td {
+            border: 1px solid var(--secondary-color);
+            padding: 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Стили для ссылок в таблицах */
+        td a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        td a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Навигация (панели) */
+        .nav-panel {
+            background-color: var(--secondary-color);
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .nav-panel a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-panel a:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* Стили для блоков основной информации */
+        .info-block {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+        }
+
+        .info-block h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .info-block p {
+            font-size: 1rem;
+        }
+
+        /* Стили для турнирной сетки (просто пример) */
+        .tournament-bracket {
+            border: 1px solid var(--secondary-color);
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .stats-value {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* Скрываем разделы по умолчанию */
+        .tab-content {
+            display: none;
+        }
+
+        /* Показываем активный раздел */
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Стили для иконок флагов */
+        .flag-icon {
+            width: 25px; /* Задайте желаемую ширину */
+            height: 20px; /* Задайте желаемую высоту */
+            vertical-align: middle; /* Выравнивание по центру */
+            margin-right: 5px; /* Небольшой отступ справа */
+            border: 1px solid var(--secondary-color); /* Тонкая рамка */
+            border-radius: 3px; /* Закругленные углы */
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+             <div class="nav-panel">
+                <a href="#main" data-tab="main">Основное</a>
+                <a href="#results" data-tab="results">Результаты</a>
+                <a href="#statistics" data-tab="statistics">Статистика</a>
+            </div>
+
+            <div id="main" class="tab-content active">
+                <h2>Основное</h2>
+                <div class="info-block">
+                    <h3>Призовой фонд</h3>
+                    <p class="stats-value">22.35 USD</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Дата проведения</h3>
+                    <p class="stats-value"> (Дата)</p>
+                </div>
+
+                 <div class="info-block">
+                    <h3>Количество команд</h3>
+                    <p class="stats-value"> (Количество)</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Локация</h3>
+                    <p class="stats-value">Online (Faceit)</p>
+                </div>
+
+                <h3>Распределение призов:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Место</th>
+                            <th>Команда</th>
+                            <th>Приз</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>(Команда 1)</td>
+                            <td>8.94 USD</td>
+                        </tr>
+                         <tr>
+                            <td>2</td>
+                            <td>(Команда 2)</td>
+                            <td>5.59 USD</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>(Команда 3)</td>
+                            <td>4.47 USD</td>
+                        </tr>
+                         <tr>
+                            <td>4</td>
+                            <td>(Команда 4)</td>
+                            <td>3.35 USD</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Турнирная сетка:</h3>
+                <div class="tournament-bracket">
+                    (Здесь будет HTML код для отображения турнирной сетки. Это более сложная задача, которую сейчас не будем детально прорабатывать. Можно вставить картинку-схему или упрощенную текстовую схему.)
+                    <p>Турнирная сетка будет добавлена позже.</p>
+                </div>
+            </div>
+
+            <div id="results" class="tab-content">
+                 <h2>Результаты</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Команда 1</th>
+                            <th>Команда 2</th>
+                            <th>Счет</th>
+                            <th>Дата</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>(Команда 1)</td>
+                            <td>(Команда 2)</td>
+                            <td>2:1</td>
+                            <td>(Дата)</td>
+                        </tr>
+                         <tr>
+                            <td>(Команда 3)</td>
+                            <td>(Команда 4)</td>
+                            <td>1:2</td>
+                            <td>(Дата)</td>
+                        </tr>
+                        <!-- Добавьте больше строк с результатами матчей -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="statistics" class="tab-content">
+                 <h2>Статистика</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ник</th>
+                            <th>Национальность</th>
+                            <th>Рейтинг</th>
+                            <th>Сыграно карт</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>(Ник 1)</td>
+                            <td><img src="" alt="Россия" class="flag-icon"></td>
+                            <td>(Рейтинг 1)</td>
+                            <td>(Карты 1)</td>
+                        </tr>
+                         <tr>
+                            <td>(Ник 2)</td>
+                            <td><img src="" alt="Украина" class="flag-icon"></td>
+                            <td>(Рейтинг 2)</td>
+                            <td>(Карты 2)</td>
+                        </tr>
+                        <!-- Добавьте больше строк со статистикой игроков -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const tabLinks = document.querySelectorAll('.nav-panel a');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const tabId = this.getAttribute('data-tab');
+
+                // Скрываем все разделы
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Показываем выбранный раздел
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // По умолчанию активен раздел "Основное"
+        document.getElementById('main').classList.add('active');
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
