@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Tournament of Friends</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Общие стили */
+        :root {
+            --primary-color: #FF9800;
+            --secondary-color: #212121;
+            --text-color: #FFFFFF;
+            --background-color: #000000;
+            --accent-color: #FFC107;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            --border-radius: 4px;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Основное содержимое */
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* Правила */
+        #rules ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #rules li {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            justify-content: center;
+        }
+
+        #rules li i {
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        /* Победители */
+        .season-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .season-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .season-card p {
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        .coming-soon {
+            opacity: 0.7;
+        }
+
+        /* Ссылка на статистику */
+        .stats-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .stats-link:hover {
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+        }
+
+        /* Подвал */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 25px;
+            border-top: 2px solid var(--primary-color);
+        }
+
+        /* Анимация */
+        .animated {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+
+        .animated.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">OTF</a>
+        <nav>
+            <ul>
+                <li><a href="#about">О турнире</a></li>
+                <li><a href="#rules">Правила</a></li>
+                <li><a href="#winners">Победители</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="animated">
+            <h2>О турнире</h2>
+            <p>Online Tournament of Friends – это место, где друзья и любители CS2 могут собраться вместе, чтобы посоревноваться, пообщаться и отлично провести время! У нас нет профессиональных команд, только азарт, дружеская атмосфера и стремление показать, на что мы способны.</p>
+            <p>Присоединяйтесь к нашему турниру и станьте частью OTF – сообщества, где важен не только скилл, но и хорошее настроение!</p>
+        </section>
+
+        <section id="rules" class="animated">
+            <h2>Правила турнира</h2>
+            <p><i class="fas fa-clock"></i> Правила турнира будут опубликованы в ближайшее время!</p>
+        </section>
+
+        <section id="winners" class="animated">
+            <h2>История победителей</h2>
+            <div class="season-card">
+                <h3>Сезон 1</h3>
+                <p><i class="fas fa-trophy"></i> Победитель: YAvMOMEDE</p>
+                <a href="season1.html" class="stats-link">Смотреть статистику</a>
+            </div>
+            <div class="season-card">
+                <h3>Сезон 2 - Скоро!</h3>
+                <p><i class="fas fa-bullhorn"></i> Анонс второго сезона!</p>
+                <p><b>Формат:</b> 2v2 CS2 Faceit Edition</p>
+                <p><b>Организатор:</b> OTF</p>
+                <p><i class="fas fa-clock"></i> Подробности будут объявлены в ближайшее время!</p>
+                <!-- Когда начнется сезон 2, раскомментируй это:
+                <a href="season2.html" class="stats-link">Смотреть статистику</a>
+                -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Tournament of Friends</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('.animated');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
